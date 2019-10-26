@@ -21,26 +21,28 @@ class URLSessionAPI {
     private var dataTask: URLSessionDataTask?
 
     func getForecasts(completion: @escaping (Result<[CodableForecast], APIError>) -> Void) {
-        guard var components = URLComponents(string: baseUrl) else {
-            completion(.failure(.badUrl))
-            return
+        guard
+            let pathUrl = URL(string: baseUrl)?.appendingPathComponent("forecast"),
+            var components = URLComponents(url: pathUrl, resolvingAgainstBaseURL: true)
+            else {
+                completion(.failure(.badUrl))
+                return
         }
         dataTask?.cancel()
 
-        components.path = "forecast"
         let queryItems = [
             "zip": "94110",
             "appid": apiKey,
-            "units": "imperial,"
+            "units": "imperial",
             ]
             .map { URLQueryItem(name: $0, value: $1) }
 
         components.queryItems = queryItems
-        guard let url = components.url else {
+        guard let completeUrl = components.url else {
             completion(.failure(.badUrl))
             return
         }
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: completeUrl)
 
         dataTask = session.dataTask(with: request) { [weak self] data, response, error in
             defer { self?.dataTask = nil }
@@ -56,7 +58,8 @@ class URLSessionAPI {
                     completion(.failure(.badResponse))
                     return
             }
-            print(data)
+            let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+            print(json)
             completion(.success([]))
         }
         dataTask?.resume()
