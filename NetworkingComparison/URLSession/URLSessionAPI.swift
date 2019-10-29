@@ -60,7 +60,10 @@ class URLSessionAPI {
             }
             let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
             print(json)
-            completion(.success([]))
+
+            let forecasts = try? JSONDecoder().decode(CodableForecastWrapper.self, from: data).forecasts
+            completion(.success(forecasts ?? []))
+
         }
         dataTask?.resume()
     }

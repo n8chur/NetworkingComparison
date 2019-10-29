@@ -15,7 +15,7 @@ class URLSessionViewModel {
         api.getForecasts { [weak self] result in
             switch result {
             case .success(let forecasts):
-                print("yay")
+                print(forecasts)
             case .failure(let failure):
                 self?.handle(failure: failure)
             }
