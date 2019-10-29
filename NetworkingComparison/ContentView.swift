@@ -9,18 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showUrlSessionView: Int? = 0
+    @State private var shouldShowUrlSessionView = false
 
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 40.0) {
-                NavigationLink(destination: URLSessionView(), tag: 1, selection: $showUrlSessionView) {
-                    EmptyView().frame(width: 0, height: 0, alignment: .center)
-                }
-
+                NavigationLink(
+                    destination: URLSessionView().navigationBarTitle("San Francisco"),
+                    isActive: $shouldShowUrlSessionView,
+                    label: { EmptyView().frame(width: 0, height: 0, alignment: .center) }
+                )
                 HStack(spacing: 40.0) {
                     Button(action: {
-                        self.showUrlSessionView = 1
+                        self.shouldShowUrlSessionView = true
                     }) {
                         Text("URLSession")
                     }
@@ -62,6 +63,7 @@ struct ContentView: View {
             }
             .foregroundColor(Color.white)
             .font(.title)
+            .navigationBarTitle(Text("Networking"))
         }
     }
 }
