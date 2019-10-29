@@ -19,8 +19,16 @@ struct URLSessionView: UIViewControllerRepresentable {
     }
 }
 
+class SubtitleCell: UITableViewCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+    }
+
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+}
+
 class URLSessionViewController: UITableViewController {
-    enum Section {
+    fileprivate enum Section: CaseIterable {
         case hourly
     }
 
@@ -32,13 +40,23 @@ class URLSessionViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(SubtitleCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.dataSource = dataSource
-        viewModel.refresh()
+
+        viewModel.refresh { [weak self] forecasts in
+            self?.update(forecasts: forecasts)
+        }
     }
 }
 
 private extension URLSessionViewController {
+    func update(forecasts: [CodableForecast]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, CodableForecast>()
+        snapshot.appendSections(Section.allCases)
+        snapshot.appendItems(forecasts, toSection: .hourly)
+        dataSource.apply(snapshot, animatingDifferences: false)
+    }
+
     func makeDataSource() -> UITableViewDiffableDataSource<Section, CodableForecast> {
         let reuseIdentifier = cellReuseIdentifier
 
@@ -46,7 +64,8 @@ private extension URLSessionViewController {
             tableView: tableView,
             cellProvider: { tableView, indexPath, forecast in
                 let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-                cell.textLabel?.font = .monospacedSystemFont(ofSize: 14.0, weight: .regular)
+                cell.detailTextLabel?.text = forecast.formattedDate
+                cell.textLabel?.text = forecast.formattedDescription
                 return cell
             }
         )

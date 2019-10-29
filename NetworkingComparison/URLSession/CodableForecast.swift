@@ -21,6 +21,17 @@ struct CodableForecast: Hashable, Decodable {
     let temp: Double
     let description: String
 
+    var formattedDescription: String {
+        String(format: "%.1f degrees and %@", temp, description)
+    }
+
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: date)
+    }
+
     private enum CodingKeys: String, CodingKey {
         case date = "dt"
         case main

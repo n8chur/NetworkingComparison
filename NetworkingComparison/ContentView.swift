@@ -35,7 +35,6 @@ struct ContentView: View {
                     .padding()
                     .background(Color.blue)
                     .cornerRadius(20.0)
-                    }
                 }
 
                 HStack(spacing: 40.0) {

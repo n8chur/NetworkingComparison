@@ -11,11 +11,11 @@ import Foundation
 class URLSessionViewModel {
     let api = URLSessionAPI()
 
-    func refresh() {
+    func refresh(onSuccess: @escaping ([CodableForecast]) -> Void) {
         api.getForecasts { [weak self] result in
             switch result {
             case .success(let forecasts):
-                print(forecasts)
+                onSuccess(forecasts)
             case .failure(let failure):
                 self?.handle(failure: failure)
             }
