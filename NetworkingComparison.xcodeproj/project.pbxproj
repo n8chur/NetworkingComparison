@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E44A44C4236800C200691A9F /* URLSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A44C3236800C200691A9F /* URLSessionViewModel.swift */; };
 		E472644D2363B5470063D32B /* URLSessionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E472644C2363B5470063D32B /* URLSessionAPI.swift */; };
 		E4F959D123639BAA00BC1879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D023639BAA00BC1879 /* AppDelegate.swift */; };
 		E4F959D323639BAA00BC1879 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D223639BAA00BC1879 /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E44A44C3236800C200691A9F /* URLSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewModel.swift; sourceTree = "<group>"; };
 		E472644C2363B5470063D32B /* URLSessionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAPI.swift; sourceTree = "<group>"; };
 		E4F959CD23639BAA00BC1879 /* NetworkingComparison.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingComparison.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F959D023639BAA00BC1879 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				E4F959E42363A2DB00BC1879 /* URLSessionViewController.swift */,
+				E44A44C3236800C200691A9F /* URLSessionViewModel.swift */,
 				E472644C2363B5470063D32B /* URLSessionAPI.swift */,
 				E4F959E72363A7B100BC1879 /* CodableForecast.swift */,
 			);
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E44A44C4236800C200691A9F /* URLSessionViewModel.swift in Sources */,
 				E4F959D123639BAA00BC1879 /* AppDelegate.swift in Sources */,
 				E4F959D323639BAA00BC1879 /* SceneDelegate.swift in Sources */,
 				E4F959D523639BAA00BC1879 /* ContentView.swift in Sources */,

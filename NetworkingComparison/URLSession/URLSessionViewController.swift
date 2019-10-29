@@ -7,30 +7,15 @@
 //
 
 import UIKit
+import SwiftUI
 
-class URLSessionViewModel {
-    let api = URLSessionAPI()
+struct URLSessionView: UIViewControllerRepresentable {
+    typealias UIViewControllerType = URLSessionViewController
 
-    func refresh() {
-        api.getForecasts { [weak self] result in
-            switch result {
-            case .success(let forecasts):
-                print(forecasts)
-            case .failure(let failure):
-                self?.handle(failure: failure)
-            }
-        }
-    }
+    func updateUIViewController(_ uiViewController: URLSessionViewController, context: UIViewControllerRepresentableContext<URLSessionView>) { }
 
-    private func handle(failure: URLSessionAPI.APIError) {
-        switch failure {
-        case .badResponse:
-            print("bad response")
-        case .badRequest(let error):
-            print(error.localizedDescription)
-        case .badUrl:
-            assertionFailure("bad url")
-        }
+    func makeUIViewController(context: Context) -> URLSessionViewController {
+        return URLSessionViewController()
     }
 }
 
