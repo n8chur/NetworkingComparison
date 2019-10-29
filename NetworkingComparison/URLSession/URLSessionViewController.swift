@@ -28,15 +28,9 @@ class SubtitleCell: UITableViewCell {
 }
 
 class URLSessionViewController: UITableViewController {
-    fileprivate enum Section: CaseIterable {
-        case hourly
-    }
-
-    fileprivate let cellReuseIdentifier = "cell"
-
-    fileprivate lazy var dataSource = makeDataSource()
-
     fileprivate let viewModel = URLSessionViewModel()
+    fileprivate let cellReuseIdentifier = "cell"
+    fileprivate lazy var dataSource = makeDataSource()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +44,10 @@ class URLSessionViewController: UITableViewController {
 }
 
 private extension URLSessionViewController {
+    enum Section: CaseIterable {
+        case hourly
+    }
+
     func update(forecasts: [CodableForecast]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, CodableForecast>()
         snapshot.appendSections(Section.allCases)
