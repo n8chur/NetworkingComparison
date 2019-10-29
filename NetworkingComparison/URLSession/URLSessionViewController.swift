@@ -10,8 +10,6 @@ import UIKit
 import SwiftUI
 
 struct URLSessionView: UIViewControllerRepresentable {
-    typealias UIViewControllerType = URLSessionViewController
-
     func updateUIViewController(_ uiViewController: URLSessionViewController, context: UIViewControllerRepresentableContext<URLSessionView>) { }
 
     func makeUIViewController(context: Context) -> URLSessionViewController {
@@ -28,44 +26,44 @@ class SubtitleCell: UITableViewCell {
 }
 
 class URLSessionViewController: UITableViewController {
-    fileprivate let viewModel = URLSessionViewModel()
-    fileprivate let cellReuseIdentifier = "cell"
-    fileprivate lazy var dataSource = makeDataSource()
+    private enum Section: CaseIterable {
+        case hourly
+    }
+
+    private let viewModel = URLSessionViewModel()
+
+    private let cellReuseIdentifier = "cell"
+    private lazy var dataSource: UITableViewDiffableDataSource<Section, CodableForecast> = {
+        UITableViewDiffableDataSource(
+            tableView: tableView,
+            cellProvider: { tableView, indexPath, forecast in
+                let cell = tableView.dequeueReusableCell(withIdentifier: self.cellReuseIdentifier, for: indexPath)
+                cell.detailTextLabel?.text = forecast.formattedDate
+                cell.textLabel?.text = forecast.formattedDescription
+                return cell
+        })
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(SubtitleCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.dataSource = dataSource
 
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        refresh()
+    }
+
+    @objc private func refresh() {
         viewModel.refresh { [weak self] forecasts in
-            self?.update(forecasts: forecasts)
-        }
-    }
-}
+            var snapshot = NSDiffableDataSourceSnapshot<Section, CodableForecast>()
+            snapshot.appendSections(Section.allCases)
+            snapshot.appendItems(forecasts, toSection: .hourly)
+            self?.dataSource.apply(snapshot, animatingDifferences: false)
 
-private extension URLSessionViewController {
-    enum Section: CaseIterable {
-        case hourly
-    }
-
-    func update(forecasts: [CodableForecast]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, CodableForecast>()
-        snapshot.appendSections(Section.allCases)
-        snapshot.appendItems(forecasts, toSection: .hourly)
-        dataSource.apply(snapshot, animatingDifferences: false)
-    }
-
-    func makeDataSource() -> UITableViewDiffableDataSource<Section, CodableForecast> {
-        let reuseIdentifier = cellReuseIdentifier
-
-        return UITableViewDiffableDataSource(
-            tableView: tableView,
-            cellProvider: { tableView, indexPath, forecast in
-                let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-                cell.detailTextLabel?.text = forecast.formattedDate
-                cell.textLabel?.text = forecast.formattedDescription
-                return cell
+            DispatchQueue.main.async {
+                self?.refreshControl?.endRefreshing()
             }
-        )
+        }
     }
 }

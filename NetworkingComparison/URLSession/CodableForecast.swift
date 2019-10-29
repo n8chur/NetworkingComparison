@@ -22,7 +22,7 @@ struct CodableForecast: Hashable, Decodable {
     let description: String
 
     var formattedDescription: String {
-        String(format: "%.1f degrees and %@", temp, description)
+        String(format: "%.1f °F and %@", temp, description)
     }
 
     var formattedDate: String {
