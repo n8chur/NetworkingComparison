@@ -10,52 +10,83 @@ import Foundation
 import Alamofire
 
 class AlamofireAPI {
-    private let baseUrl = "http://api.openweathermap.org/data/2.5"
-    private var params = [
-        "api": Secrets.openWeatherAPIKey,
-    ]
+    private enum RequestStyle {
+        case router, params, encodable
+    }
+
+    private var requestStyle: RequestStyle = .router
 
     func getForecasts(completion: @escaping (AFResult<[CodableForecast]>) -> Void) {
-        // Test using router / URLRequestConvertible
-        let request = Router.search(query: "asdf", page: 0)
-        AF.request(request).responseJSON { response in
-            print(response)
+        switch requestStyle {
+        case .router: requestWithRouter(completion)
+        case .params: requestWithParams(completion)
+        case .encodable: requestWithEncodable(completion)
         }
-        // Test using standard URLConvertible
-        AF.request(baseUrl, parameters: params, encoding: URLEncoding.queryString).responseJSON { response in
-            print(response)
-        }
+    }
 
-        struct Test: Codable {
-            let test: Int
-        }
-        let test = Test(test: 1)
+    private func requestWithRouter(_ completion: @escaping (AFResult<[CodableForecast]>) -> Void) {
+        print("********** Alamofire requesting with URLRequestConvertible Router **********")
 
-        AF.request(baseUrl, parameters: test, encoder: URLEncodedFormParameterEncoder(destination: .queryString)).responseJSON { response in
+        let request = Router.forecast
+        AF.request(request).responseJSON { [weak self] response in
             print(response)
+            self?.requestStyle = .params
+        }
+    }
+
+    private func requestWithParams(_ completion: @escaping (AFResult<[CodableForecast]>) -> Void) {
+        print("********** Alamofire requesting with URLConvertible and Parameter Dictionary **********")
+
+        let request = AF.request(API.baseUrl, parameters: API.params, encoding: URLEncoding.queryString)
+        request.responseJSON { [weak self] response in
+            print(response)
+            self?.requestStyle = .encodable
+        }
+    }
+
+    private func requestWithEncodable(_ completion: @escaping (AFResult<[CodableForecast]>) -> Void) {
+        print("********** Alamofire requesting with URLConvertible and Encodable parameter model **********")
+
+        struct Params: Codable {
+            let zipCode: String
+            let appId: String
+            let units: String
+
+            private enum CodingKeys: String, CodingKey {
+                case zipCode = "zip"
+                case appId = "appid"
+                case units
+            }
+        }
+        guard let zip = API.params["zip"], let appId = API.params["appid"], let units = API.params["units"] else {
+            fatalError("Invalid param keys")
+        }
+        let encodableParams = Params(zipCode: zip, appId: appId, units: units)
+
+        let request = AF.request(
+            API.baseUrl,
+            parameters: encodableParams,
+            encoder: URLEncodedFormParameterEncoder(destination: .queryString)
+        )
+        request.responseJSON { [weak self] response in
+            print(response)
+            self?.requestStyle = .router
         }
     }
 }
 
 enum Router: URLRequestConvertible {
-    case search(query: String, page: Int)
-
-    static let baseURLString = "https://example.com"
-    static let perPage = 50
-
-    // MARK: URLRequestConvertible
+    case forecast
 
     func asURLRequest() throws -> URLRequest {
         let result: (path: String, parameters: Parameters) = {
             switch self {
-            case let .search(query, page) where page > 0:
-                return ("/search", ["q": query, "offset": Router.perPage * page])
-            case let .search(query, _):
-                return ("/search", ["q": query])
+            case .forecast:
+                return ("/forecast", API.params)
             }
         }()
 
-        let url = try Router.baseURLString.asURL()
+        let url = try API.baseUrl.asURL()
         let urlRequest = URLRequest(url: url.appendingPathComponent(result.path))
 
         return try URLEncoding.default.encode(urlRequest, with: result.parameters)

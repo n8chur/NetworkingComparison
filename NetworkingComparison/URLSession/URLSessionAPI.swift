@@ -16,13 +16,12 @@ class URLSessionAPI {
     }
     
     private let session = URLSession.shared
-    private let baseUrl = "http://api.openweathermap.org/data/2.5"
-    private let apiKey = Secrets.openWeatherAPIKey
     private var dataTask: URLSessionDataTask?
 
     func getForecasts(completion: @escaping (Result<[CodableForecast], APIError>) -> Void) {
+        print("********** URLSession requesting with dataTask **********")
         guard
-            let pathUrl = URL(string: baseUrl)?.appendingPathComponent("forecast"),
+            let pathUrl = URL(string: API.baseUrl)?.appendingPathComponent("forecast"),
             var components = URLComponents(url: pathUrl, resolvingAgainstBaseURL: true)
             else {
                 completion(.failure(.badUrl))
@@ -30,14 +29,7 @@ class URLSessionAPI {
         }
         dataTask?.cancel()
 
-        let queryItems = [
-            "zip": "94110",
-            "appid": apiKey,
-            "units": "imperial",
-            ]
-            .map { URLQueryItem(name: $0, value: $1) }
-
-        components.queryItems = queryItems
+        components.queryItems = API.params.map { URLQueryItem(name: $0, value: $1) }
         guard let completeUrl = components.url else {
             completion(.failure(.badUrl))
             return
