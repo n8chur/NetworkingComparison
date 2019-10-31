@@ -10,6 +10,8 @@
 		E44A44C4236800C200691A9F /* URLSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A44C3236800C200691A9F /* URLSessionViewModel.swift */; };
 		E472644D2363B5470063D32B /* URLSessionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E472644C2363B5470063D32B /* URLSessionAPI.swift */; };
 		E4A0EECD236ABE3900C74A94 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A0EECC236ABE3900C74A94 /* Alamofire.framework */; };
+		E4A0EED2236AC17F00C74A94 /* AlamofireAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EED1236AC17F00C74A94 /* AlamofireAPI.swift */; };
+		E4A0EED4236AC82F00C74A94 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EED3236AC82F00C74A94 /* Secrets.swift */; };
 		E4F959D123639BAA00BC1879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D023639BAA00BC1879 /* AppDelegate.swift */; };
 		E4F959D323639BAA00BC1879 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D223639BAA00BC1879 /* SceneDelegate.swift */; };
 		E4F959D523639BAA00BC1879 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D423639BAA00BC1879 /* ContentView.swift */; };
@@ -24,6 +26,8 @@
 		E44A44C3236800C200691A9F /* URLSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewModel.swift; sourceTree = "<group>"; };
 		E472644C2363B5470063D32B /* URLSessionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAPI.swift; sourceTree = "<group>"; };
 		E4A0EECC236ABE3900C74A94 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		E4A0EED1236AC17F00C74A94 /* AlamofireAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireAPI.swift; sourceTree = "<group>"; };
+		E4A0EED3236AC82F00C74A94 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		E4F959CD23639BAA00BC1879 /* NetworkingComparison.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingComparison.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F959D023639BAA00BC1879 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F959D223639BAA00BC1879 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 				E4F959D023639BAA00BC1879 /* AppDelegate.swift */,
 				E4F959D223639BAA00BC1879 /* SceneDelegate.swift */,
 				E4F959D423639BAA00BC1879 /* ContentView.swift */,
+				E4A0EED1236AC17F00C74A94 /* AlamofireAPI.swift */,
+				E4A0EED3236AC82F00C74A94 /* Secrets.swift */,
 				E4F959E62363A78B00BC1879 /* URLSession */,
 				E4F959D623639BAC00BC1879 /* Assets.xcassets */,
 				E4F959DB23639BAC00BC1879 /* LaunchScreen.storyboard */,
@@ -195,12 +201,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E44A44C4236800C200691A9F /* URLSessionViewModel.swift in Sources */,
+				E4A0EED4236AC82F00C74A94 /* Secrets.swift in Sources */,
 				E4F959D123639BAA00BC1879 /* AppDelegate.swift in Sources */,
 				E4F959D323639BAA00BC1879 /* SceneDelegate.swift in Sources */,
 				E4F959D523639BAA00BC1879 /* ContentView.swift in Sources */,
 				E4F959E82363A7B100BC1879 /* CodableForecast.swift in Sources */,
 				E4F959E52363A2DB00BC1879 /* URLSessionViewController.swift in Sources */,
 				E472644D2363B5470063D32B /* URLSessionAPI.swift in Sources */,
+				E4A0EED2236AC17F00C74A94 /* AlamofireAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

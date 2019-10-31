@@ -17,7 +17,7 @@ class URLSessionAPI {
     
     private let session = URLSession.shared
     private let baseUrl = "http://api.openweathermap.org/data/2.5"
-    private let apiKey = "08b86e7c552789c966a8eee5e99cf18e"
+    private let apiKey = Secrets.openWeatherAPIKey
     private var dataTask: URLSessionDataTask?
 
     func getForecasts(completion: @escaping (Result<[CodableForecast], APIError>) -> Void) {
