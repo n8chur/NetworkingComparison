@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E44A44C4236800C200691A9F /* URLSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A44C3236800C200691A9F /* URLSessionViewModel.swift */; };
 		E472644D2363B5470063D32B /* URLSessionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E472644C2363B5470063D32B /* URLSessionAPI.swift */; };
+		E4A0EECD236ABE3900C74A94 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A0EECC236ABE3900C74A94 /* Alamofire.framework */; };
 		E4F959D123639BAA00BC1879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D023639BAA00BC1879 /* AppDelegate.swift */; };
 		E4F959D323639BAA00BC1879 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D223639BAA00BC1879 /* SceneDelegate.swift */; };
 		E4F959D523639BAA00BC1879 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D423639BAA00BC1879 /* ContentView.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		E44A44C3236800C200691A9F /* URLSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewModel.swift; sourceTree = "<group>"; };
 		E472644C2363B5470063D32B /* URLSessionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAPI.swift; sourceTree = "<group>"; };
+		E4A0EECC236ABE3900C74A94 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		E4F959CD23639BAA00BC1879 /* NetworkingComparison.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingComparison.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F959D023639BAA00BC1879 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F959D223639BAA00BC1879 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4A0EECD236ABE3900C74A94 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +53,7 @@
 			children = (
 				E4F959CF23639BAA00BC1879 /* NetworkingComparison */,
 				E4F959CE23639BAA00BC1879 /* Products */,
+				E4A0EECC236ABE3900C74A94 /* Alamofire.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +109,7 @@
 				E4F959C923639BAA00BC1879 /* Sources */,
 				E4F959CA23639BAA00BC1879 /* Frameworks */,
 				E4F959CB23639BAA00BC1879 /* Resources */,
+				E4A0EECE236ABE5600C74A94 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -160,6 +165,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E4A0EECE236ABE5600C74A94 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4F959C923639BAA00BC1879 /* Sources */ = {
@@ -312,6 +340,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NetworkingComparison/Preview Content\"";
 				DEVELOPMENT_TEAM = UPKJS2XD8E;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NetworkingComparison/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -332,6 +364,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NetworkingComparison/Preview Content\"";
 				DEVELOPMENT_TEAM = UPKJS2XD8E;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = NetworkingComparison/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
