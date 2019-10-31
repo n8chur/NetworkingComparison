@@ -4,3 +4,4 @@ NetworkingComparison.xccheckout
 DerivedData
 .DS_Store
 Carthage/
+Secrets.swift
