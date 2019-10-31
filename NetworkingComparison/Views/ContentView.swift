@@ -10,59 +10,26 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var shouldShowUrlSessionForecastView = false
+    @State private var shouldShowAlamofireForecastView = false
 
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 40.0) {
-                NavigationLink(
-                    destination: URLSessionForecastView().navigationBarTitle("San Francisco"),
-                    isActive: $shouldShowUrlSessionForecastView,
-                    label: { EmptyView().frame(width: 0, height: 0, alignment: .center) }
-                )
                 HStack(spacing: 40.0) {
-                    Button(action: {
-                        self.shouldShowUrlSessionForecastView = true
-                    }) {
-                        Text("URLSession")
-                    }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(20.0)
-
-                    Button(action: {
-                        print("Hello")
-                    }) {
-                        Text("AlamoFire")
-                    }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(20.0)
+                    NavigationButton(
+                        destination: URLSessionForecastView(),
+                        isActive: shouldShowUrlSessionForecastView,
+                        buttonTitle: "URLSession"
+                    )
+                    NavigationButton(
+                        destination: AlamofireForecastView(),
+                        isActive: shouldShowAlamofireForecastView,
+                        buttonTitle: "Alamofire"
+                    )
                 }
-
-                HStack(spacing: 40.0) {
-                    Button(action: {
-                        print("Hello")
-                    }) {
-                        Text("RxSwift")
-                    }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(20.0)
-
-                    Button(action: {
-                        print("Hello")
-                    }) {
-                        Text("Combine")
-                    }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(20.0)
-                }
-
                 Spacer()
             }
-            .foregroundColor(Color.white)
-            .font(.title)
+            .padding()
             .navigationBarTitle(Text("Networking"))
         }
     }

@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 class AlamofireViewModel: ForecastViewModel {
-    let api = AlamofireAPI()
+    let api = AlamofireAPI.shared
 
     func refresh(onSuccess: @escaping ([CodableForecast]) -> Void) {
         api.getForecasts { [weak self] result in

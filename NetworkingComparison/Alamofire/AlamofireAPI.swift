@@ -10,6 +10,8 @@ import Foundation
 import Alamofire
 
 class AlamofireAPI {
+    static let shared = AlamofireAPI()
+
     private enum RequestStyle {
         case router, params, encodable
     }

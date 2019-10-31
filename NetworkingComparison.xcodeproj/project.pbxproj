@@ -16,6 +16,7 @@
 		E4A0EF02236B7CFF00C74A94 /* AlamofireViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EF01236B7CFF00C74A94 /* AlamofireViewModel.swift */; };
 		E4A0EF04236B7D8F00C74A94 /* ViewControllerRepresentables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EF03236B7D8F00C74A94 /* ViewControllerRepresentables.swift */; };
 		E4A0EF06236B896F00C74A94 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EF05236B896F00C74A94 /* API.swift */; };
+		E4A0EF08236B9AB900C74A94 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EF07236B9AB900C74A94 /* NavigationButton.swift */; };
 		E4F959D123639BAA00BC1879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D023639BAA00BC1879 /* AppDelegate.swift */; };
 		E4F959D323639BAA00BC1879 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D223639BAA00BC1879 /* SceneDelegate.swift */; };
 		E4F959D523639BAA00BC1879 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D423639BAA00BC1879 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 		E4A0EF01236B7CFF00C74A94 /* AlamofireViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireViewModel.swift; sourceTree = "<group>"; };
 		E4A0EF03236B7D8F00C74A94 /* ViewControllerRepresentables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRepresentables.swift; sourceTree = "<group>"; };
 		E4A0EF05236B896F00C74A94 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E4A0EF07236B9AB900C74A94 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		E4F959CD23639BAA00BC1879 /* NetworkingComparison.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingComparison.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F959D023639BAA00BC1879 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F959D223639BAA00BC1879 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				E4F959D423639BAA00BC1879 /* ContentView.swift */,
+				E4A0EF07236B9AB900C74A94 /* NavigationButton.swift */,
 				E4A0EF03236B7D8F00C74A94 /* ViewControllerRepresentables.swift */,
 				E4F959E42363A2DB00BC1879 /* ForecastViewController.swift */,
 				E4A0EEFD236B7B3700C74A94 /* SubtitleCell.swift */,
@@ -243,6 +246,7 @@
 				E4F959D523639BAA00BC1879 /* ContentView.swift in Sources */,
 				E4A0EEFE236B7B3700C74A94 /* SubtitleCell.swift in Sources */,
 				E4F959E82363A7B100BC1879 /* CodableForecast.swift in Sources */,
+				E4A0EF08236B9AB900C74A94 /* NavigationButton.swift in Sources */,
 				E4F959E52363A2DB00BC1879 /* ForecastViewController.swift in Sources */,
 				E4A0EF06236B896F00C74A94 /* API.swift in Sources */,
 				E4A0EF02236B7CFF00C74A94 /* AlamofireViewModel.swift in Sources */,
