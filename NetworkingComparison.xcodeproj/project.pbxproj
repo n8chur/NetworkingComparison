@@ -12,13 +12,16 @@
 		E4A0EECD236ABE3900C74A94 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A0EECC236ABE3900C74A94 /* Alamofire.framework */; };
 		E4A0EED2236AC17F00C74A94 /* AlamofireAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EED1236AC17F00C74A94 /* AlamofireAPI.swift */; };
 		E4A0EED4236AC82F00C74A94 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EED3236AC82F00C74A94 /* Secrets.swift */; };
+		E4A0EEFE236B7B3700C74A94 /* SubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EEFD236B7B3700C74A94 /* SubtitleCell.swift */; };
+		E4A0EF02236B7CFF00C74A94 /* AlamofireViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EF01236B7CFF00C74A94 /* AlamofireViewModel.swift */; };
+		E4A0EF04236B7D8F00C74A94 /* ViewControllerRepresentables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EF03236B7D8F00C74A94 /* ViewControllerRepresentables.swift */; };
 		E4F959D123639BAA00BC1879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D023639BAA00BC1879 /* AppDelegate.swift */; };
 		E4F959D323639BAA00BC1879 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D223639BAA00BC1879 /* SceneDelegate.swift */; };
 		E4F959D523639BAA00BC1879 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D423639BAA00BC1879 /* ContentView.swift */; };
 		E4F959D723639BAC00BC1879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F959D623639BAC00BC1879 /* Assets.xcassets */; };
 		E4F959DA23639BAC00BC1879 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F959D923639BAC00BC1879 /* Preview Assets.xcassets */; };
 		E4F959DD23639BAC00BC1879 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F959DB23639BAC00BC1879 /* LaunchScreen.storyboard */; };
-		E4F959E52363A2DB00BC1879 /* URLSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959E42363A2DB00BC1879 /* URLSessionViewController.swift */; };
+		E4F959E52363A2DB00BC1879 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959E42363A2DB00BC1879 /* ForecastViewController.swift */; };
 		E4F959E82363A7B100BC1879 /* CodableForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959E72363A7B100BC1879 /* CodableForecast.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +31,9 @@
 		E4A0EECC236ABE3900C74A94 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		E4A0EED1236AC17F00C74A94 /* AlamofireAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireAPI.swift; sourceTree = "<group>"; };
 		E4A0EED3236AC82F00C74A94 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		E4A0EEFD236B7B3700C74A94 /* SubtitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleCell.swift; sourceTree = "<group>"; };
+		E4A0EF01236B7CFF00C74A94 /* AlamofireViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireViewModel.swift; sourceTree = "<group>"; };
+		E4A0EF03236B7D8F00C74A94 /* ViewControllerRepresentables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRepresentables.swift; sourceTree = "<group>"; };
 		E4F959CD23639BAA00BC1879 /* NetworkingComparison.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingComparison.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4F959D023639BAA00BC1879 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4F959D223639BAA00BC1879 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,7 +42,7 @@
 		E4F959D923639BAC00BC1879 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4F959DC23639BAC00BC1879 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4F959DE23639BAC00BC1879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4F959E42363A2DB00BC1879 /* URLSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewController.swift; sourceTree = "<group>"; };
+		E4F959E42363A2DB00BC1879 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		E4F959E72363A7B100BC1879 /* CodableForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableForecast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,6 +58,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E4A0EEFC236B7ABF00C74A94 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E4F959D423639BAA00BC1879 /* ContentView.swift */,
+				E4A0EF03236B7D8F00C74A94 /* ViewControllerRepresentables.swift */,
+				E4F959E42363A2DB00BC1879 /* ForecastViewController.swift */,
+				E4A0EEFD236B7B3700C74A94 /* SubtitleCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E4A0EEFF236B7C6E00C74A94 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E4F959E72363A7B100BC1879 /* CodableForecast.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E4A0EF00236B7C7F00C74A94 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				E4A0EED1236AC17F00C74A94 /* AlamofireAPI.swift */,
+				E4A0EF01236B7CFF00C74A94 /* AlamofireViewModel.swift */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
 		E4F959C423639BA900BC1879 = {
 			isa = PBXGroup;
 			children = (
@@ -74,10 +108,11 @@
 			children = (
 				E4F959D023639BAA00BC1879 /* AppDelegate.swift */,
 				E4F959D223639BAA00BC1879 /* SceneDelegate.swift */,
-				E4F959D423639BAA00BC1879 /* ContentView.swift */,
-				E4A0EED1236AC17F00C74A94 /* AlamofireAPI.swift */,
 				E4A0EED3236AC82F00C74A94 /* Secrets.swift */,
+				E4A0EF00236B7C7F00C74A94 /* Alamofire */,
 				E4F959E62363A78B00BC1879 /* URLSession */,
+				E4A0EEFC236B7ABF00C74A94 /* Views */,
+				E4A0EEFF236B7C6E00C74A94 /* Models */,
 				E4F959D623639BAC00BC1879 /* Assets.xcassets */,
 				E4F959DB23639BAC00BC1879 /* LaunchScreen.storyboard */,
 				E4F959DE23639BAC00BC1879 /* Info.plist */,
@@ -97,10 +132,8 @@
 		E4F959E62363A78B00BC1879 /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
-				E4F959E42363A2DB00BC1879 /* URLSessionViewController.swift */,
-				E44A44C3236800C200691A9F /* URLSessionViewModel.swift */,
 				E472644C2363B5470063D32B /* URLSessionAPI.swift */,
-				E4F959E72363A7B100BC1879 /* CodableForecast.swift */,
+				E44A44C3236800C200691A9F /* URLSessionViewModel.swift */,
 			);
 			path = URLSession;
 			sourceTree = "<group>";
@@ -205,10 +238,13 @@
 				E4F959D123639BAA00BC1879 /* AppDelegate.swift in Sources */,
 				E4F959D323639BAA00BC1879 /* SceneDelegate.swift in Sources */,
 				E4F959D523639BAA00BC1879 /* ContentView.swift in Sources */,
+				E4A0EEFE236B7B3700C74A94 /* SubtitleCell.swift in Sources */,
 				E4F959E82363A7B100BC1879 /* CodableForecast.swift in Sources */,
-				E4F959E52363A2DB00BC1879 /* URLSessionViewController.swift in Sources */,
+				E4F959E52363A2DB00BC1879 /* ForecastViewController.swift in Sources */,
+				E4A0EF02236B7CFF00C74A94 /* AlamofireViewModel.swift in Sources */,
 				E472644D2363B5470063D32B /* URLSessionAPI.swift in Sources */,
 				E4A0EED2236AC17F00C74A94 /* AlamofireAPI.swift in Sources */,
+				E4A0EF04236B7D8F00C74A94 /* ViewControllerRepresentables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,19 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var shouldShowUrlSessionView = false
+    @State private var shouldShowUrlSessionForecastView = false
 
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 40.0) {
                 NavigationLink(
-                    destination: URLSessionView().navigationBarTitle("San Francisco"),
-                    isActive: $shouldShowUrlSessionView,
+                    destination: URLSessionForecastView().navigationBarTitle("San Francisco"),
+                    isActive: $shouldShowUrlSessionForecastView,
                     label: { EmptyView().frame(width: 0, height: 0, alignment: .center) }
                 )
                 HStack(spacing: 40.0) {
                     Button(action: {
-                        self.shouldShowUrlSessionView = true
+                        self.shouldShowUrlSessionForecastView = true
                     }) {
                         Text("URLSession")
                     }

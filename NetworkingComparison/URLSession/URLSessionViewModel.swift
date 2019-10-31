@@ -8,7 +8,7 @@
 
 import Foundation
 
-class URLSessionViewModel {
+class URLSessionViewModel: ForecastViewModel {
     let api = URLSessionAPI()
 
     func refresh(onSuccess: @escaping ([CodableForecast]) -> Void) {

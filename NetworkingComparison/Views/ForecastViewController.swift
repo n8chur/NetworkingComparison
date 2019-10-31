@@ -1,5 +1,5 @@
 //
-//  URLSessionViewController.swift
+//  ForecastViewController.swift
 //  NetworkingComparison
 //
 //  Created by Ian Luo on 10/25/19.
@@ -7,30 +7,15 @@
 //
 
 import UIKit
-import SwiftUI
 
-struct URLSessionView: UIViewControllerRepresentable {
-    func updateUIViewController(_ uiViewController: URLSessionViewController, context: UIViewControllerRepresentableContext<URLSessionView>) { }
-
-    func makeUIViewController(context: Context) -> URLSessionViewController {
-        return URLSessionViewController()
-    }
+protocol ForecastViewModel {
+    func refresh(onSuccess: @escaping ([CodableForecast]) -> Void)
 }
 
-class SubtitleCell: UITableViewCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-    }
-
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-}
-
-class URLSessionViewController: UITableViewController {
+class ForecastViewController: UITableViewController {
     private enum Section: CaseIterable {
         case hourly
     }
-
-    private let viewModel = URLSessionViewModel()
 
     private let cellReuseIdentifier = "cell"
     private lazy var dataSource: UITableViewDiffableDataSource<Section, CodableForecast> = {
@@ -43,6 +28,13 @@ class URLSessionViewController: UITableViewController {
                 return cell
         })
     }()
+
+    private let viewModel: ForecastViewModel
+
+    init(viewModel: ForecastViewModel) {
+        self.viewModel = viewModel
+        super.init(style: .plain)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,4 +58,6 @@ class URLSessionViewController: UITableViewController {
             }
         }
     }
+
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
