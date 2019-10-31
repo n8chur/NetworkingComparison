@@ -15,14 +15,23 @@ class AlamofireAPI {
         "api": Secrets.openWeatherAPIKey,
     ]
 
-    func getForecasts(completion: @escaping (Alamofire.Result<[CodableForecast]>) -> Void) {
+    func getForecasts(completion: @escaping (AFResult<[CodableForecast]>) -> Void) {
         // Test using router / URLRequestConvertible
         let request = Router.search(query: "asdf", page: 0)
-        Alamofire.request(request).responseJSON { response in
+        AF.request(request).responseJSON { response in
             print(response)
         }
         // Test using standard URLConvertible
-        Alamofire.request(baseUrl, parameters: params, encoding: URLEncoding.queryString).responseJSON { response in
+        AF.request(baseUrl, parameters: params, encoding: URLEncoding.queryString).responseJSON { response in
+            print(response)
+        }
+
+        struct Test: Codable {
+            let test: Int
+        }
+        let test = Test(test: 1)
+
+        AF.request(baseUrl, parameters: test, encoder: URLEncodedFormParameterEncoder(destination: .queryString)).responseJSON { response in
             print(response)
         }
     }
