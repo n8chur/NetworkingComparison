@@ -13,24 +13,13 @@ class AlamofireViewModel: ForecastViewModel {
     let api = AlamofireAPI.shared
 
     func refresh(onSuccess: @escaping ([CodableForecast]) -> Void) {
-        api.getForecasts { [weak self] result in
+        api.getForecasts { result in
             switch result {
             case .success(let forecasts):
                 onSuccess(forecasts)
             case .failure(let failure):
-                self?.handle(failure: failure)
+                print("Alamofire Error: \(failure).\n\nDescription: \(failure.errorDescription ?? "")")
             }
         }
-    }
-
-    private func handle(failure: AFError) {
-//        switch failure {
-//        case .badResponse:
-//            print("bad response")
-//        case .badRequest(let error):
-//            print(error.localizedDescription)
-//        case .badUrl:
-//            assertionFailure("bad url")
-//        }
     }
 }

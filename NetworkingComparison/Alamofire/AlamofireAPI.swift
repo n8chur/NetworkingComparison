@@ -18,6 +18,12 @@ class AlamofireAPI {
 
     private var requestStyle: RequestStyle = .router
 
+    private let decoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .secondsSince1970
+        return decoder
+    }()
+
     func getForecasts(completion: @escaping (AFResult<[CodableForecast]>) -> Void) {
         switch requestStyle {
         case .router: requestWithRouter(completion)
@@ -29,20 +35,24 @@ class AlamofireAPI {
     private func requestWithRouter(_ completion: @escaping (AFResult<[CodableForecast]>) -> Void) {
         print("********** Alamofire requesting with URLRequestConvertible Router **********")
 
-        let request = Router.forecast
-        AF.request(request).responseJSON { [weak self] response in
-            print(response)
-            self?.requestStyle = .params
+        AF.request(Router.forecast)
+            .validate()
+            .responseDecodable(of: CodableForecastWrapper.self, decoder: decoder) { [weak self] response in
+                let forecastResult = response.map { $0.forecasts }.result
+                completion(forecastResult)
+
+                self?.requestStyle = .params
         }
     }
 
     private func requestWithParams(_ completion: @escaping (AFResult<[CodableForecast]>) -> Void) {
         print("********** Alamofire requesting with URLConvertible and Parameter Dictionary **********")
 
-        let request = AF.request(API.baseUrl, parameters: API.params, encoding: URLEncoding.queryString)
-        request.responseJSON { [weak self] response in
-            print(response)
-            self?.requestStyle = .encodable
+        AF.request(API.baseUrl, parameters: API.params, encoding: URLEncoding.queryString)
+            .validate()
+            .responseJSON { [weak self] response in
+                print(response)
+                self?.requestStyle = .encodable
         }
     }
 
@@ -70,7 +80,7 @@ class AlamofireAPI {
             parameters: encodableParams,
             encoder: URLEncodedFormParameterEncoder(destination: .queryString)
         )
-        request.responseJSON { [weak self] response in
+        request.validate().responseJSON { [weak self] response in
             print(response)
             self?.requestStyle = .router
         }
