@@ -54,9 +54,13 @@ class AlamofireAPI {
         }
         AF.request(url, parameters: API.params, encoding: URLEncoding.queryString)
             .validate()
-            .responseDecodable(of: CodableForecastWrapper.self, decoder: decoder) { [weak self] response in
-                let forecastResponse = response.map {
-                    $0.forecasts.filter { $0.temp < 54 }
+            .responseData { [weak self] response in
+                let forecastResponse = response.map { data -> [CodableForecast] in
+                    guard let wrapper = try? self?.decoder.decode(CodableForecastWrapper.self, from: data) else {
+                        completion(.failure(.responseSerializationFailed(reason: .inputDataNilOrZeroLength)))
+                        return []
+                    }
+                    return wrapper.forecasts.filter { $0.temp < 54 }
                 }
                 completion(forecastResponse.result)
 
