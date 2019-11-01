@@ -48,10 +48,18 @@ class AlamofireAPI {
     private func requestWithParams(_ completion: @escaping (AFResult<[CodableForecast]>) -> Void) {
         print("********** Alamofire requesting with URLConvertible and Parameter Dictionary **********")
 
-        AF.request(API.baseUrl, parameters: API.params, encoding: URLEncoding.queryString)
+        guard let url = URL(string: API.baseUrl)?.appendingPathComponent("forecast") else {
+            completion(.failure(AFError.invalidURL(url: API.baseUrl)))
+            return
+        }
+        AF.request(url, parameters: API.params, encoding: URLEncoding.queryString)
             .validate()
-            .responseJSON { [weak self] response in
-                print(response)
+            .responseDecodable(of: CodableForecastWrapper.self, decoder: decoder) { [weak self] response in
+                let forecastResponse = response.map {
+                    $0.forecasts.filter { $0.temp < 54 }
+                }
+                completion(forecastResponse.result)
+
                 self?.requestStyle = .encodable
         }
     }
@@ -76,12 +84,16 @@ class AlamofireAPI {
         let encodableParams = Params(zipCode: zip, appId: appId, units: units)
 
         let request = AF.request(
-            API.baseUrl,
+            API.baseUrl.appending("/forecast"),
             parameters: encodableParams,
             encoder: URLEncodedFormParameterEncoder(destination: .queryString)
         )
-        request.validate().responseJSON { [weak self] response in
-            print(response)
+        request.validate().responseDecodable(of: CodableForecastWrapper.self, decoder: decoder) { [weak self] response in
+            let forecastResponse = response.map {
+                $0.forecasts.filter { $0.temp > 60 }
+            }
+            completion(forecastResponse.result)
+
             self?.requestStyle = .router
         }
     }

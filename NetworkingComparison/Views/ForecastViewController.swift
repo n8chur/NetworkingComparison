@@ -51,7 +51,7 @@ class ForecastViewController: UITableViewController {
             var snapshot = NSDiffableDataSourceSnapshot<Section, CodableForecast>()
             snapshot.appendSections(Section.allCases)
             snapshot.appendItems(forecasts, toSection: .hourly)
-            self?.dataSource.apply(snapshot, animatingDifferences: false)
+            self?.dataSource.apply(snapshot, animatingDifferences: true)
 
             DispatchQueue.main.async {
                 self?.refreshControl?.endRefreshing()
