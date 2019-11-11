@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4609E3C92379DB2900E9D4BD /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4609E3C82379DB2900E9D4BD /* ForecastView.swift */; };
+		4609E3CB237A26AA00E9D4BD /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4609E3CA237A26AA00E9D4BD /* RefreshButton.swift */; };
 		E44A44C4236800C200691A9F /* URLSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A44C3236800C200691A9F /* URLSessionViewModel.swift */; };
 		E472644D2363B5470063D32B /* URLSessionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E472644C2363B5470063D32B /* URLSessionAPI.swift */; };
 		E4A0EECD236ABE3900C74A94 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A0EECC236ABE3900C74A94 /* Alamofire.framework */; };
@@ -14,7 +16,6 @@
 		E4A0EED4236AC82F00C74A94 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EED3236AC82F00C74A94 /* Secrets.swift */; };
 		E4A0EEFE236B7B3700C74A94 /* SubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EEFD236B7B3700C74A94 /* SubtitleCell.swift */; };
 		E4A0EF02236B7CFF00C74A94 /* AlamofireViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EF01236B7CFF00C74A94 /* AlamofireViewModel.swift */; };
-		E4A0EF04236B7D8F00C74A94 /* ViewControllerRepresentables.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EF03236B7D8F00C74A94 /* ViewControllerRepresentables.swift */; };
 		E4A0EF06236B896F00C74A94 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EF05236B896F00C74A94 /* API.swift */; };
 		E4A0EF08236B9AB900C74A94 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A0EF07236B9AB900C74A94 /* NavigationButton.swift */; };
 		E4F959D123639BAA00BC1879 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959D023639BAA00BC1879 /* AppDelegate.swift */; };
@@ -23,11 +24,13 @@
 		E4F959D723639BAC00BC1879 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F959D623639BAC00BC1879 /* Assets.xcassets */; };
 		E4F959DA23639BAC00BC1879 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4F959D923639BAC00BC1879 /* Preview Assets.xcassets */; };
 		E4F959DD23639BAC00BC1879 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4F959DB23639BAC00BC1879 /* LaunchScreen.storyboard */; };
-		E4F959E52363A2DB00BC1879 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959E42363A2DB00BC1879 /* ForecastViewController.swift */; };
+		E4F959E52363A2DB00BC1879 /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959E42363A2DB00BC1879 /* ForecastViewModel.swift */; };
 		E4F959E82363A7B100BC1879 /* CodableForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F959E72363A7B100BC1879 /* CodableForecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4609E3C82379DB2900E9D4BD /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
+		4609E3CA237A26AA00E9D4BD /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		E44A44C3236800C200691A9F /* URLSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewModel.swift; sourceTree = "<group>"; };
 		E472644C2363B5470063D32B /* URLSessionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionAPI.swift; sourceTree = "<group>"; };
 		E4A0EECC236ABE3900C74A94 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -35,7 +38,6 @@
 		E4A0EED3236AC82F00C74A94 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		E4A0EEFD236B7B3700C74A94 /* SubtitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleCell.swift; sourceTree = "<group>"; };
 		E4A0EF01236B7CFF00C74A94 /* AlamofireViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireViewModel.swift; sourceTree = "<group>"; };
-		E4A0EF03236B7D8F00C74A94 /* ViewControllerRepresentables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerRepresentables.swift; sourceTree = "<group>"; };
 		E4A0EF05236B896F00C74A94 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		E4A0EF07236B9AB900C74A94 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 		E4F959CD23639BAA00BC1879 /* NetworkingComparison.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkingComparison.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,7 +48,7 @@
 		E4F959D923639BAC00BC1879 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4F959DC23639BAC00BC1879 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4F959DE23639BAC00BC1879 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4F959E42363A2DB00BC1879 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
+		E4F959E42363A2DB00BC1879 /* ForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewModel.swift; sourceTree = "<group>"; };
 		E4F959E72363A7B100BC1879 /* CodableForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableForecast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,8 +69,9 @@
 			children = (
 				E4F959D423639BAA00BC1879 /* ContentView.swift */,
 				E4A0EF07236B9AB900C74A94 /* NavigationButton.swift */,
-				E4A0EF03236B7D8F00C74A94 /* ViewControllerRepresentables.swift */,
-				E4F959E42363A2DB00BC1879 /* ForecastViewController.swift */,
+				E4F959E42363A2DB00BC1879 /* ForecastViewModel.swift */,
+				4609E3C82379DB2900E9D4BD /* ForecastView.swift */,
+				4609E3CA237A26AA00E9D4BD /* RefreshButton.swift */,
 				E4A0EEFD236B7B3700C74A94 /* SubtitleCell.swift */,
 			);
 			path = Views;
@@ -246,13 +249,14 @@
 				E4F959D523639BAA00BC1879 /* ContentView.swift in Sources */,
 				E4A0EEFE236B7B3700C74A94 /* SubtitleCell.swift in Sources */,
 				E4F959E82363A7B100BC1879 /* CodableForecast.swift in Sources */,
+				4609E3CB237A26AA00E9D4BD /* RefreshButton.swift in Sources */,
 				E4A0EF08236B9AB900C74A94 /* NavigationButton.swift in Sources */,
-				E4F959E52363A2DB00BC1879 /* ForecastViewController.swift in Sources */,
+				E4F959E52363A2DB00BC1879 /* ForecastViewModel.swift in Sources */,
 				E4A0EF06236B896F00C74A94 /* API.swift in Sources */,
 				E4A0EF02236B7CFF00C74A94 /* AlamofireViewModel.swift in Sources */,
 				E472644D2363B5470063D32B /* URLSessionAPI.swift in Sources */,
+				4609E3C92379DB2900E9D4BD /* ForecastView.swift in Sources */,
 				E4A0EED2236AC17F00C74A94 /* AlamofireAPI.swift in Sources */,
-				E4A0EF04236B7D8F00C74A94 /* ViewControllerRepresentables.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

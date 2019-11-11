@@ -16,7 +16,7 @@ struct CodableForecastWrapper: Decodable {
     }
 }
 
-struct CodableForecast: Hashable, Decodable {
+struct CodableForecast: Hashable, Decodable, Identifiable {
     let date: Date
     let temp: Double
     let description: String
@@ -31,6 +31,8 @@ struct CodableForecast: Hashable, Decodable {
         dateFormatter.timeStyle = .short
         return dateFormatter.string(from: date)
     }
+
+    var id: String { formattedDate }
 
     private enum CodingKeys: String, CodingKey {
         case date = "dt"
